@@ -1,0 +1,7 @@
+docker-compose-dns:
+  image: arnested/docker-compose-dns
+  container_name: docker-compose-dns
+  ports:
+    - '53/udp:53/udp'
+  volumes:
+    - '/var/run/docker.sock:/tmp/docker.sock:ro'

@@ -1,0 +1,4 @@
+.:53 {
+       log stdout
+       file /etc/coredns/containers
+}
