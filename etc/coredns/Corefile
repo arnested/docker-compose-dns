@@ -1,4 +1,5 @@
 .:53 {
        log stdout
+       loadbalance round_robin
        file /etc/coredns/containers
 }
