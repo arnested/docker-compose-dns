@@ -3,7 +3,9 @@
 {{ $tld := $.Env.DOCKER_TLD }}
 {{ $network := index $value.Networks 0 }}
 {{ index $value.Labels "com.docker.compose.service" }}.{{ index $value.Labels "com.docker.compose.project" }}.{{ $tld }}. 60 IN A {{ $network.IP }}
+{{ index $value.Labels "com.docker.compose.service" }}-{{ index $value.Labels "com.docker.compose.container-number" }}.{{ index $value.Labels "com.docker.compose.project" }}.{{ $tld }}. 60 IN A {{ $network.IP }}
 *.{{ index $value.Labels "com.docker.compose.service" }}.{{ index $value.Labels "com.docker.compose.project" }}.{{ $tld }}. 60 IN A {{ $network.IP }}
+*.{{ index $value.Labels "com.docker.compose.service" }}-{{ index $value.Labels "com.docker.compose.container-number" }}.{{ index $value.Labels "com.docker.compose.project" }}.{{ $tld }}. 60 IN A {{ $network.IP }}
 {{ end }}
 {{ end }}
 
