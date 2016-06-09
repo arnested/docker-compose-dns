@@ -20,5 +20,6 @@ RUN curl -sL -o docker-gen-linux-amd64-$DOCKER_GEN_VERSION.tar.gz https://github
 ADD etc /etc
 
 ENV DOCKER_HOST unix:///tmp/docker.sock
+ENV DOCKER_TLD test
 
 ENTRYPOINT ["/my_init"]

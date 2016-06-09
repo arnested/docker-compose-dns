@@ -1,9 +1,11 @@
 {{ range $host, $containers := groupByLabel $ "com.docker.compose.service" }}
 {{ range $index, $value := $containers }}
+{{ $tld := $.Env.DOCKER_TLD }}
 {{ $network := index $value.Networks 0 }}
-{{ index $value.Labels "com.docker.compose.service" }}.{{ index $value.Labels "com.docker.compose.project" }}.test. 60 IN A {{ $network.IP }}
+{{ index $value.Labels "com.docker.compose.service" }}.{{ index $value.Labels "com.docker.compose.project" }}.{{ $tld }}. 60 IN A {{ $network.IP }}
 {{ end }}
 {{ end }}
+
 {{ range $host, $containers := groupByMulti $ "Env.VIRTUAL_HOST" "," }}
 {{ range $index, $value := $containers }}
 {{ $network := index $value.Networks 0 }}
