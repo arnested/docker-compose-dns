@@ -1,6 +1,7 @@
-docker-compose-dns:
+dns:
   image: arnested/docker-compose-dns
-  container_name: docker-compose-dns
+  container_name: dns
+  restart: always
   ports:
     - '53/udp:53/udp'
   volumes:
